@@ -1,0 +1,2 @@
+import{r as t}from"./assets/refs-cbf76b81.js";const r=()=>"#"+Math.floor(Math.random()*16777215).toString(16);t.stopBtn.disabled=!0;let e=null;t.startBtn.addEventListener("click",()=>{e=setInterval(()=>{document.body.style.background=r()},1e3),t.stopBtn.disabled=!1,t.startBtn.disabled=!0});t.stopBtn.addEventListener("click",()=>{clearInterval(e),t.stopBtn.disabled=!0,t.startBtn.disabled=!1});
+//# sourceMappingURL=commonHelpers2.js.map
