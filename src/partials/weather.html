@@ -1,15 +1,29 @@
 <section class="weather">
   <div class="container">
     <form class="search-form js-search-form">
-      <input
-        class="search-input js-search-input"
-        type="text"
-        name="user_country"
-      />
-      <button class="search-btn" type="submit">
-        Пошук <span class="material-icons">search</span>
-      </button>
+      <div class="form-box">
+        <input
+          class="search-input js-search-input"
+          type="text"
+          name="user_country"
+          placeholder="Enter the city"
+        />
+        <button class="saveFavoriteBtn" type="submit">
+          <svg class="favorite-star" width="22px" height="22px">
+            <use href="../img/sprite.svg#icon-star"></use>
+          </svg>
+        </button>
+      </div>
     </form>
+    <div class="wrapper">
+      <div class="city-slider swiper-container">
+        <ul class="city-slider__wrapper swiper-wrapper"></ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+
     <div class="weather__wrapper"></div>
   </div>
 </section>

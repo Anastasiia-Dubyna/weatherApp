@@ -14,6 +14,7 @@ export const getWeatherByQuery = async city => {
       q: city,
     },
   });
+  console.log(data);
   return data;
 };
 
