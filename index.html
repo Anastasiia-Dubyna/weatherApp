@@ -8,48 +8,63 @@
 
     
     <script type="module" crossorigin src="/weatherApp/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/weatherApp/assets/refs-cbf76b81.js">
-    <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-8dfef7e7.js">
-    <link rel="stylesheet" href="/weatherApp/assets/vendor-d9f00548.css">
-    <link rel="stylesheet" href="/weatherApp/assets/index-8819dbe9.css">
+    <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-b45ecd2d.js">
+    <link rel="stylesheet" href="/weatherApp/assets/vendor-65fbc4ea.css">
+    <link rel="stylesheet" href="/weatherApp/assets/index-464ee457.css">
   </head>
   <body>
-    <header class="header">
-  <h2>Header</h2>
-  <nav class="nav">
-    <ul class="nav-list">
-      <li class="nav-item">
-        <a href="./page-2.html" class="nav-link">Page 2</a>
-      </li>
-
-      <li class="nav-item">
-        <a href="./page-3.html" class="nav-link">Page 3</a>
-      </li>
-    </ul>
-  </nav>
-</header>
-
-
     <section class="weather">
   <div class="container">
     <form class="search-form js-search-form">
-      <input
-        class="search-input js-search-input"
-        type="text"
-        name="user_country"
-      />
-      <button class="search-btn" type="submit">
-        Пошук <span class="material-icons">search</span>
-      </button>
+      <div class="form-box">
+        <button class="location-btn" type="button">
+          <svg class="icon-location" width="22px" height="22px">
+            <use href="../img/symbol-defs.svg#icon-location"></use>
+          </svg>
+        </button>
+        <input
+          class="search-input js-search-input"
+          type="text"
+          name="user_country"
+          placeholder="Enter the city"
+        />
+        <button class="saveFavoriteBtn" type="submit">
+          <svg class="favorite-star" width="22px" height="22px">
+            <use href="../img/symbol-defs.svg#icon-star"></use>
+          </svg>
+        </button>
+      </div>
     </form>
+    <div class="wrapper">
+      <div class="city-slider swiper-container">
+        <ul class="city-slider__wrapper swiper-wrapper"></ul>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+      </div>
+    </div>
+    <div class="weather__wrapper-oneDay"></div>
+    <div class="buttonsOneOrFive">
+      <button class="btn-today">TODAY</button
+      ><button class="btn-five btn-disActive">5 DAYS</button>
+    </div>
     <div class="weather__wrapper"></div>
+  </div>
+  <div class="chart">
+    <p class="show-chart">Show Chart</p>
+    <button class="btn-show-chart">
+      <svg class="elipse" width="10px" height="7px">
+        <use href="../img/symbol-defs.svg#icon-vector"></use>
+      </svg>
+    </button>
   </div>
 </section>
 
-    <div class="time">
+    <!-- <div class="time">
       <span class="dateSpan"></span>
       <span class="timeSpan"></span>
-    </div>
+    </div> -->
+
     
   </body>
 </html>
