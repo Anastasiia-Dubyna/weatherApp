@@ -2,23 +2,24 @@ import { format } from 'date-fns';
 
 const weatherWrapper = document.querySelector('.weather__wrapper');
 const swiperList = document.querySelector('.city-slider__wrapper');
+const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
 
-export const createMarkup = ({ name, main, sys, clouds, weather }) => {
-  //   const sunrise = format(new Date(sys.sunrise * 1000), 'H:m');
-  //   const sunset = format(new Date(sys.sunset * 1000), 'H:m');
+//   const sunrise = format(new Date(sys.sunrise * 1000), 'H:m');
+//   const sunset = format(new Date(sys.sunset * 1000), 'H:m');
+
+export const createMarkupFiveDays = ({ name, main, sys, clouds, weather }) => {
   const day = format(new Date(), 'EEEE');
   const date = format(new Date(), 'cc LLL');
+
   const screenWidth = window.innerWidth;
   let numItems = 1;
-  console.log(main);
-
-  const markup = `<div class="buttonsOneOrFive"><button class="btn-today btn-isActive">TODAY</button><button class="btn-five">5 DAYS</button></div>
+  const markup = `
   <div class="weather__card">
       <h2 class="city-name">${name}, ${sys.country}</h2>
       <ul class="weather-info list">    
       </ul>    
   </div>`;
-  weatherWrapper.insertAdjacentHTML('beforeend', markup);
+  weatherWrapper.innerHTML = markup;
 
   if (screenWidth >= 768) {
     numItems = 5;
@@ -38,18 +39,25 @@ export const createMarkup = ({ name, main, sys, clouds, weather }) => {
                 weather[0].icon
               }@2x.png" alt="${weather[0].description}" />
               <div class="temperature">
-                <p class="min-temperature">min <span class="teperature-span">${main.temp_min.toFixed(
+                <div><p class="min-temperature">min </p>
+                <span class="teperature-span">${main.temp_min.toFixed(
                   0
-                )}<sup>&#176;</sup></span></p>
-                <hr class="vertical-line">
-                <p class="max-temperature">max <span class="teperature-span">${main.temp_max.toFixed(
+                )}&#176;</span></div>
+                <div><p class="max-temperature">max </p>
+                <span class="teperature-span">${main.temp_max.toFixed(
                   0
-                )}<sup>&#176;</sup></span></p>
+                )}&#176;</span></div>
               </div> 
               <p class="more-info-card">more info</p>
           </li>`;
   }
-  weatherInfo.insertAdjacentHTML('beforeend', itemsMarkup);
+  weatherInfo.innerHTML = itemsMarkup;
+
+  //   const moreInfo = document.querySelector('.more-info-card');
+
+  //   moreInfo.addEventListener('click', () => {
+  //     const createMoreMarkup = `<div><ul><li></li></ul></div>`;
+  //   });
 };
 
 export const createFavoriteCities = items => {
@@ -60,11 +68,58 @@ export const createFavoriteCities = items => {
       }" class="city-slider__slide swiper-slide">
               ${el}
             <button class="deleteFavoriteBtn"><svg class="close-favorite" width="12px" height="12px">
-            <use href="../img/sprite.svg#icon-close"></use>
+            <use href="../img/symbol-defs.svg#icon-close"></use>
           </svg></button></li>`;
     })
     .join('');
   swiperList.insertAdjacentHTML('beforeend', markup);
+};
+
+export const createMarkupOneDay = ({ name, main, sys, weather }) => {
+  const markupOneDay = `<div class="weather__card-oneDay">
+      <ul class="oneDayList">
+      <li class="oneDayItem"> 
+        <img class="weather-imgOneDay" src="https://openweathermap.org/img/wn/${
+          weather[0].icon
+        }@2x.png" alt="${weather[0].description}" />
+        <h2 class="city-name-oneDay">${name}, ${sys.country}</h2>
+        <p class="temperature-oneDay">${main.temp}</p>
+        <div class="temperature">
+            <div>
+                <p class="min-temperature">min </p>
+                <span class="teperature-span">${main.temp_min.toFixed(
+                  0
+                )}&#176;</span></div>
+            <div>
+                <p class="max-temperature">max </p>
+                <span class="teperature-span">${main.temp_max.toFixed(
+                  0
+                )}&#176;</span>
+            </div>
+        </div> 
+      </li>    
+      </ul>    
+  </div>`;
+  weatherWrapperOneDay.innerHTML = markupOneDay;
+};
+
+export const createMarkupWeatherDate = ({
+  name,
+  main,
+  sys,
+  clouds,
+  weather,
+}) => {
+  const day = format(new Date(), 'EEEE');
+  const date = format(new Date(), 'cc LLL');
+  const markupOneDay = `<div class="weather__card-date">
+      <ul class="oneDayDateList">
+      <li class="oneDayDateItem"> 
+       <p class="day">${day}</p>
+              <p class="date">${date}</p>
+      </li>    
+      </ul>    
+  </div>`;
 };
 
 //   <li class="weather-info-item">
