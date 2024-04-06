@@ -3,9 +3,9 @@ import { format } from 'date-fns';
 const weatherWrapper = document.querySelector('.weather__wrapper');
 const swiperList = document.querySelector('.city-slider__wrapper');
 const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
-
-//   const sunrise = format(new Date(sys.sunrise * 1000), 'H:m');
-//   const sunset = format(new Date(sys.sunset * 1000), 'H:m');
+const weatherWrapperOneDayDate = document.querySelector(
+  '.weather__wrapper-oneDayDate'
+);
 
 export const createMarkupFiveDays = ({ name, main, sys, clouds, weather }) => {
   const day = format(new Date(), 'EEEE');
@@ -83,7 +83,7 @@ export const createMarkupOneDay = ({ name, main, sys, weather }) => {
           weather[0].icon
         }@2x.png" alt="${weather[0].description}" />
         <h2 class="city-name-oneDay">${name}, ${sys.country}</h2>
-        <p class="temperature-oneDay">${main.temp}</p>
+        <p class="temperature-oneDay">${main.temp.toFixed(0)}</p>
         <div class="temperature">
             <div>
                 <p class="min-temperature">min </p>
@@ -103,36 +103,35 @@ export const createMarkupOneDay = ({ name, main, sys, weather }) => {
   weatherWrapperOneDay.innerHTML = markupOneDay;
 };
 
-export const createMarkupWeatherDate = ({
-  name,
-  main,
-  sys,
-  clouds,
-  weather,
-}) => {
-  const day = format(new Date(), 'EEEE');
-  const date = format(new Date(), 'cc LLL');
-  const markupOneDay = `<div class="weather__card-date">
-      <ul class="oneDayDateList">
+export const createMarkupWeatherDate = ({ sys }) => {
+  const timeSpan = document.querySelector('.timeSpan');
+  const timer = setInterval(() => {
+    timeSpan.textContent = format(new Date(), 'HH:mm:ss');
+  }, 1000);
+  const sunrise = format(new Date(sys.sunrise * 1000), 'HH:m');
+  const sunset = format(new Date(sys.sunset * 1000), 'HH:m');
+  const month = format(new Date(), 'LLLL');
+  const date = format(new Date(), 'do E');
+  const markupOneDayDate = `<div class="weather__card-date">
+    <ul class="oneDayDateList">
       <li class="oneDayDateItem"> 
-       <p class="day">${day}</p>
-              <p class="date">${date}</p>
+       <p class="dateOneDay">${date}</p>
+       <div class="timeDate">
+          <p class="month">${month}</p>
+          <span class="timeSpan">${timer}</span>
+       </div>
+       <div class="sun-runing">
+       <span class="sunrise"><svg class="sunrise-img" width="12px" height="12px">
+            <use href="../img/symbol-defs.svg#icon-sunrise"></use>
+          </svg></span>
+         <p class="sunrise-time">${sunrise}</p>
+         <span class="sunset"><svg class="sunset-img" width="12px" height="12px">
+            <use href="../img/symbol-defs.svg#icon-sunset"></use>
+          </svg></span>
+         <p class="sunset-time">${sunset}</p>
+       </div>
       </li>    
-      </ul>    
+    </ul>    
   </div>`;
+  weatherWrapperOneDayDate.innerHTML = markupOneDayDate;
 };
-
-//   <li class="weather-info-item">
-// <p class="temp">Температура: ${main.temp}<sup>&#176;</sup></p>
-//       <p class="feels-like-temp">Відчувається як: ${main.feels_like}<sup>&#176;</sup></p>
-//   </li>
-//   <li class="weather-info-item">
-//       <p class="sunrise-time">Схід сонця: ${sunrise}</p>
-//   </li>
-//   <li class="weather-info-item">
-//       <p class="sunset-time">Захід сонця: ${sunset}</p>
-//   </li>
-//   <li class="weather-info-item">
-//       <p class="clouds">Хмарність: ${clouds.all}%</p>
-//   </li>
-//   <li><img src="https://openweathermap.org/img/wn/${weather[0].icon}@2x.png" alt="${weather[0].description}" /></li>

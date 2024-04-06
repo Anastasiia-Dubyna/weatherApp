@@ -3,12 +3,12 @@ import {
   createFavoriteCities,
   createMarkupFiveDays,
   createMarkupOneDay,
+  createMarkupWeatherDate,
 } from './js/createMarkup';
 import { getWeatherByCoords, getWeatherByQuery } from './js/api/weatherApi';
 import { getUserInfo } from './js/api/opencagedataApi';
 import { getPhotos } from './js/api/pixabayApi';
 import { setBackground } from './js/helpers/setBackground';
-import { format } from 'date-fns';
 import { refs } from './js/refs';
 import { save, load } from './js/storage.js';
 import { btnAddFavorite, btnRemoveFavorite } from './js/favoriteBtn.js';
@@ -79,13 +79,9 @@ function loadPage() {
   swiper.update();
   const success = pos => {
     getWeatherByCoords(pos.coords).then(createMarkupOneDay);
+    getWeatherByCoords(pos.coords).then(createMarkupWeatherDate);
     getUserInfo(pos.coords).then(getPhotos).then(setBackground);
   };
 
   navigator.geolocation.getCurrentPosition(success);
 }
-
-// const timer = setInterval(() => {
-//   refs.dateSpan.textContent = format(new Date(), 'MMM do');
-//   refs.timeSpan.textContent = format(new Date(), 'HH:mm:ss');
-// }, 1000);
