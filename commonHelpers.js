@@ -40,6 +40,7 @@ import{f as o,a as m,S,N as F}from"./assets/vendor-b45ecd2d.js";(function(){cons
     <ul class="oneDayDateList">
       <li class="oneDayDateItem"> 
        <p class="dateOneDay">${o(new Date,"do E")}</p>
+       <div class="date-info">
        <div class="timeDate">
           <p class="month">${r}</p>
           <span class="timeSpan">${s}</span>
@@ -53,6 +54,7 @@ import{f as o,a as m,S,N as F}from"./assets/vendor-b45ecd2d.js";(function(){cons
             <use href="../img/symbol-defs.svg#icon-sunset"></use>
           </svg></span>
          <p class="sunset-time">${a}</p>
+       </div>
        </div>
       </li>    
     </ul>    
