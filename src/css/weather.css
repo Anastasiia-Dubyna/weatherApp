@@ -298,7 +298,6 @@ ul {
 
   .buttonsOneOrFive {
     display: flex;
-    width: 280px;
     height: 28px;
     margin-bottom: 32px;
   }
@@ -405,6 +404,9 @@ ul {
     height: 28px;
     border: none;
   }
+  .phrase {
+    display: none;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -415,15 +417,19 @@ ul {
   }
   .search-input {
     width: 704px;
+    padding-left: 60px;
+    text-align: left;
   }
   .search-form {
     width: 704px;
+  }
+  .wrapper {
+    margin-left: 31px;
   }
   .city-slider {
     margin-bottom: 106px;
   }
   .weather__wrapper-oneDay {
-    width: 680px;
     margin: 0 12px;
   }
   .weather__card-oneDay {
@@ -432,11 +438,11 @@ ul {
     margin-bottom: 32px;
   }
   .oneDayItem {
+    margin-top: 32px;
     width: 120px;
     height: 225px;
   }
   .weather-imgOneDay {
-    margin-top: 32px;
     margin-bottom: 5px;
     width: 35px;
     height: 35px;
@@ -445,14 +451,17 @@ ul {
     font-size: 18px;
   }
   .temperature-oneDay {
+    display: flex;
+    align-items: center;
     font-weight: 300;
     font-size: 90px;
+    width: 90px;
+    height: 96px;
   }
   .temperature {
     margin-top: 8px;
   }
   .buttonsOneOrFive {
-    width: 336px;
     margin: 0 184px;
     margin-bottom: 32px;
   }
@@ -466,10 +475,134 @@ ul {
     height: 250px;
   }
   .dateOneDay {
+    display: flex;
+    align-items: center;
+    width: 290px;
+    height: 96px;
     font-weight: 300;
-    font-size: 90px;
+    font-size: 75px;
+    margin-bottom: 16px;
+  }
+  .timeDate {
+    width: 186px;
+    margin-left: 53px;
+    margin-bottom: 30px;
+  }
+  .sun-runing {
+    width: 189px;
+    margin-left: 50px;
+  }
+  .sunrise-img {
+    width: 20px;
+    height: 20px;
+  }
+  .sunset-img {
+    width: 20px;
+    height: 20px;
+  }
+  .chart {
+    display: none;
+  }
+  .phrase {
+    display: inline;
+  }
+  .phrase-text {
+    display: flex;
+    justify-content: end;
+    padding-right: 32px;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    text-align: right;
+    color: #fff;
+    text-align: right;
+  }
+  .phrase-autor {
+    display: flex;
+    justify-content: end;
+    padding-right: 32px;
+    margin-bottom: 40px;
+    text-align: right;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    text-align: right;
+    color: #fff;
   }
 }
 
 @media screen and (min-width: 1280px) {
+  .container {
+    padding-top: 80px;
+    width: 1280px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .search-form {
+    width: 822px;
+  }
+  .search-input {
+    width: 822px;
+  }
+  .wrapper {
+    width: 417px;
+    margin-left: 261px;
+  }
+  .weather__wrapper-oneDay {
+    display: flex;
+    margin: 0;
+    justify-content: end;
+  }
+  .weather__card-oneDay {
+    width: 411px;
+  }
+  .weather__card-oneDay {
+    border-radius: 34px 0 0 34px;
+    width: 411px;
+    height: 289px;
+  }
+  .buttonsOneOrFive {
+    display: flex;
+    justify-content: end;
+    margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 85px;
+    margin-right: 16px;
+  }
+  .weather-imgOneDay {
+    width: 56px;
+  }
+  .weather__card-date {
+    border-radius: 0 34px 0 0;
+    width: 624px;
+    height: 264px;
+  }
+  .dateOneDay {
+    margin-top: 35px;
+  }
+  .date-info {
+    display: flex;
+  }
+  .timeDate {
+    margin-right: 136px;
+    margin-left: 0;
+  }
+  .month {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .timeSpan {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .sunrise-time {
+    font-weight: 400;
+    font-size: 18px;
+  }
+  .sunset-time {
+    font-weight: 400;
+    font-size: 18px;
+  }
 }

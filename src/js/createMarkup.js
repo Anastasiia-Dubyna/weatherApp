@@ -116,6 +116,7 @@ export const createMarkupWeatherDate = ({ sys }) => {
     <ul class="oneDayDateList">
       <li class="oneDayDateItem"> 
        <p class="dateOneDay">${date}</p>
+       <div class="date-info">
        <div class="timeDate">
           <p class="month">${month}</p>
           <span class="timeSpan">${timer}</span>
@@ -129,6 +130,7 @@ export const createMarkupWeatherDate = ({ sys }) => {
             <use href="../img/symbol-defs.svg#icon-sunset"></use>
           </svg></span>
          <p class="sunset-time">${sunset}</p>
+       </div>
        </div>
       </li>    
     </ul>    
