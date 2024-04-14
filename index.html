@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/weatherApp/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-b45ecd2d.js">
     <link rel="stylesheet" href="/weatherApp/assets/vendor-65fbc4ea.css">
-    <link rel="stylesheet" href="/weatherApp/assets/index-3fae455e.css">
+    <link rel="stylesheet" href="/weatherApp/assets/index-8f6276d8.css">
   </head>
   <body>
     <section class="weather">
@@ -44,27 +44,57 @@
     <div class="wrapper">
       <div class="city-slider swiper-container">
         <ul class="city-slider__wrapper swiper-wrapper"></ul>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
+
         <div class="swiper-scrollbar"></div>
       </div>
+      <div class="button-prev"></div>
+      <div class="button-next"></div>
     </div>
     <div class="weather__wrapper-oneDay"></div>
     <div class="buttonsOneOrFive">
       <button class="btn-today">TODAY</button
       ><button class="btn-five btn-disActive">5 DAYS</button>
     </div>
-    <div class="weather__wrapper-oneDayDate"></div>
+    <div class="weather__wrapper-oneDayDate">
+      <div class="weather__card-date">
+        <ul class="oneDayDateList">
+          <li class="oneDayDateItem">
+            <p class="dateOneDay"></p>
+            <div class="date-info">
+              <div class="timeDate">
+                <p class="month"></p>
+                <span class="timeSpan"></span>
+              </div>
+              <div class="sun-runing">
+                <span class="sunrise"
+                  ><svg class="sunrise-img" width="12px" height="12px">
+                    <use href="../img/symbol-defs.svg#icon-sunrise"></use>
+                  </svg>
+                </span>
+                <p class="sunrise-time"></p>
+                <span class="sunset"
+                  ><svg class="sunset-img" width="12px" height="12px">
+                    <use href="../img/symbol-defs.svg#icon-sunset"></use>
+                  </svg>
+                </span>
+                <p class="sunset-time"></p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="phrase">
+        <p class="phrase-text">
+          Who cares about the clouds when<br />
+          we're together? Just sing a song and<br />
+          bring the sunny weather.
+        </p>
+        <p class="phrase-autor">Dale Evans</p>
+      </div>
+    </div>
     <div class="weather__wrapper"></div>
   </div>
-  <div class="phrase">
-    <p class="phrase-text">
-      Who cares about the clouds when<br />
-      we're together? Just sing a song and<br />
-      bring the sunny weather.
-    </p>
-    <p class="phrase-autor">Dale Evans</p>
-  </div>
+
   <div class="chart">
     <p class="show-chart">Show Chart</p>
     <button class="btn-show-chart">
