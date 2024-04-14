@@ -68,7 +68,7 @@ export const createFavoriteCities = items => {
       }" class="city-slider__slide swiper-slide">
               ${el}
             <button class="deleteFavoriteBtn"><svg class="close-favorite" width="12px" height="12px">
-            <use href="../img/symbol-defs.svg#icon-close"></use>
+            <use href="/img/symbol-defs.svg#icon-close"></use>
           </svg></button></li>`;
     })
     .join('');
@@ -76,6 +76,8 @@ export const createFavoriteCities = items => {
 };
 
 export const createMarkupOneDay = ({ name, main, sys, weather }) => {
+  const sunset = document.querySelector('.sunset-time');
+  const sunrise = document.querySelector('.sunrise-time');
   const markupOneDay = `<div class="weather__card-oneDay">
       <ul class="oneDayList">
       <li class="oneDayItem"> 
@@ -101,39 +103,6 @@ export const createMarkupOneDay = ({ name, main, sys, weather }) => {
       </ul>    
   </div>`;
   weatherWrapperOneDay.innerHTML = markupOneDay;
-};
-
-export const createMarkupWeatherDate = ({ sys }) => {
-  const timeSpan = document.querySelector('.timeSpan');
-  const timer = setInterval(() => {
-    timeSpan.textContent = format(new Date(), 'HH:mm:ss');
-  }, 1000);
-  const sunrise = format(new Date(sys.sunrise * 1000), 'HH:m');
-  const sunset = format(new Date(sys.sunset * 1000), 'HH:m');
-  const month = format(new Date(), 'LLLL');
-  const date = format(new Date(), 'do E');
-  const markupOneDayDate = `<div class="weather__card-date">
-    <ul class="oneDayDateList">
-      <li class="oneDayDateItem"> 
-       <p class="dateOneDay">${date}</p>
-       <div class="date-info">
-       <div class="timeDate">
-          <p class="month">${month}</p>
-          <span class="timeSpan">${timer}</span>
-       </div>
-       <div class="sun-runing">
-       <span class="sunrise"><svg class="sunrise-img" width="12px" height="12px">
-            <use href="../img/symbol-defs.svg#icon-sunrise"></use>
-          </svg></span>
-         <p class="sunrise-time">${sunrise}</p>
-         <span class="sunset"><svg class="sunset-img" width="12px" height="12px">
-            <use href="../img/symbol-defs.svg#icon-sunset"></use>
-          </svg></span>
-         <p class="sunset-time">${sunset}</p>
-       </div>
-       </div>
-      </li>    
-    </ul>    
-  </div>`;
-  weatherWrapperOneDayDate.innerHTML = markupOneDayDate;
+  sunrise.textContent = format(new Date(sys.sunrise * 1000), 'HH:mm');
+  sunset.textContent = format(new Date(sys.sunset * 1000), 'HH:mm');
 };

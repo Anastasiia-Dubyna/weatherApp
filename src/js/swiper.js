@@ -6,14 +6,15 @@ import 'swiper/css/navigation';
 export const swiper = new Swiper('.city-slider', {
   modules: [Navigation],
   navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
+    nextEl: '.button-next',
+    prevEl: '.button-prev',
   },
-  slidesPerView: 4,
+  slidesPerView: 'auto',
   loop: false,
   createElements: true,
-  pagination: true,
-  centeredSlides: false,
+  // centeredSlides: false,
+
+  // slidesPerView: 'auto',
   // breakpoints: {
   //   320: {
   //     slidesPerView: 2,
