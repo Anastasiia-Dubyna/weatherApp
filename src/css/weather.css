@@ -80,9 +80,10 @@ ul {
   }
 
   .weather__card {
-    width: 280px;
+    width: 1248px;
     height: 272px;
     padding: 30px;
+    margin: 0 auto;
     box-shadow: 0 5px 33px 0 rgba(16, 33, 54, 0.6);
     background: rgba(16, 33, 54, 0.8);
     font-weight: 500;
@@ -320,6 +321,9 @@ ul {
   .wrapper .button-next::after {
     color: #000000;
     font-size: 16px;
+  }
+  .wrapper-with-margin {
+    margin-bottom: 271px;
   }
 
   .buttonsOneOrFive {

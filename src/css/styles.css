@@ -11,6 +11,7 @@
 
 body {
   background: linear-gradient(rgb(225, 255, 53, 0.1), rgb(48, 62, 143, 0.1));
+  min-height: 100vh;
 }
 
 :root {
