@@ -28,3 +28,16 @@ export const getWeatherByCoords = async ({ latitude, longitude }) => {
   });
   return data;
 };
+
+export const getWeatherForFiveDays = async ({ latitude, longitude }) => {
+  // api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
+  // api.openweathermap.org/data/2.5/forecast?q={city name}&appid={API key}
+  const { data } = await instance.get(`/forecast`, {
+    params: {
+      lat: latitude,
+      lon: longitude,
+    },
+  });
+  console.log(data);
+  return data;
+};

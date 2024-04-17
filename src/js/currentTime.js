@@ -1,13 +1,10 @@
 import { format } from 'date-fns';
-
-const dateOneDay = document.querySelector('.dateOneDay');
-const month = document.querySelector('.month');
-const timer = document.querySelector('.timeSpan');
+import { refs } from './refs';
 
 export const updateCurrentTime = () => {
   setInterval(() => {
-    timer.textContent = format(new Date(), 'HH:mm:ss');
-    month.textContent = format(new Date(), 'LLLL');
-    dateOneDay.textContent = format(new Date(), 'do E');
+    refs.timer.textContent = format(new Date(), 'HH:mm:ss');
+    refs.month.textContent = format(new Date(), 'LLLL');
+    refs.dateOneDay.textContent = format(new Date(), 'do E');
   }, 1000);
 };
