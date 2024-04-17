@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/weatherApp/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-b45ecd2d.js">
     <link rel="stylesheet" href="/weatherApp/assets/vendor-65fbc4ea.css">
-    <link rel="stylesheet" href="/weatherApp/assets/index-8f6276d8.css">
+    <link rel="stylesheet" href="/weatherApp/assets/index-b73a3410.css">
   </head>
   <body>
     <section class="weather">
@@ -47,8 +47,16 @@
 
         <div class="swiper-scrollbar"></div>
       </div>
-      <div class="button-prev"></div>
-      <div class="button-next"></div>
+      <div class="button-prev">
+        <svg class="button-prev-img" width="10px" height="12px">
+          <use href="../img/symbol-defs.svg#icon-vector"></use>
+        </svg>
+      </div>
+      <div class="button-next">
+        <svg class="button-next-img" width="10px" height="12px">
+          <use href="../img/symbol-defs.svg#icon-vector"></use>
+        </svg>
+      </div>
     </div>
     <div class="weather__wrapper-oneDay"></div>
     <div class="buttonsOneOrFive">
@@ -66,14 +74,14 @@
                 <span class="timeSpan"></span>
               </div>
               <div class="sun-runing">
-                <span class="sunrise"
-                  ><svg class="sunrise-img" width="12px" height="12px">
+                <span class="sunrise">
+                  <svg class="sunrise-img" width="12px" height="12px">
                     <use href="../img/symbol-defs.svg#icon-sunrise"></use>
                   </svg>
                 </span>
                 <p class="sunrise-time"></p>
-                <span class="sunset"
-                  ><svg class="sunset-img" width="12px" height="12px">
+                <span class="sunset">
+                  <svg class="sunset-img" width="12px" height="12px">
                     <use href="../img/symbol-defs.svg#icon-sunset"></use>
                   </svg>
                 </span>
