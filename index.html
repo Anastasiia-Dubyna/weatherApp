@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/weatherApp/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-b45ecd2d.js">
     <link rel="stylesheet" href="/weatherApp/assets/vendor-65fbc4ea.css">
-    <link rel="stylesheet" href="/weatherApp/assets/index-0cfbf9b8.css">
+    <link rel="stylesheet" href="/weatherApp/assets/index-26e268c4.css">
   </head>
   <body>
     <section class="weather">
@@ -60,8 +60,8 @@
     </div>
     <div class="weather__wrapper-oneDay"></div>
     <div class="buttonsOneOrFive">
-      <h2 class="city-name">City</h2>
-      <ul>
+      <h2 class="city-name"></h2>
+      <ul class="btn-list">
         <li>
           <button class="btn-today" disabled data-day="today">Today</button>
         </li>
@@ -109,9 +109,9 @@
     </div>
     <div class="weather__wrapper" style="display: none">
       <div class="weather__card">
-        <h2 class="city-name">${name}, ${sys.country}</h2>
+        <h2 class="city-name-card">${name}, ${sys.country}</h2>
         <ul class="weather-info list">
-          <li class="weather-info-item">
+          <!-- <li class="weather-info-item">
             <p class="day">${day}</p>
             <p class="date">${date}</p>
             <img
@@ -136,12 +136,11 @@
               </div>
             </div>
             <p class="more-info-card">more info</p>
-          </li>
+          </li> -->
         </ul>
       </div>
     </div>
   </div>
-
   <div class="chart">
     <p class="show-chart">Show Chart</p>
     <button class="btn-show-chart">
