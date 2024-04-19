@@ -99,7 +99,9 @@ ul {
     background: #102136;
     margin-bottom: 20px;
   }
-
+  .city-name-card {
+    display: none;
+  }
   .oneDayList {
     display: flex;
     flex-wrap: wrap;
@@ -218,6 +220,7 @@ ul {
 
   .city-name {
     text-transform: uppercase;
+
     margin-bottom: 20px;
     margin-top: 32px;
     font-weight: 700;
@@ -239,17 +242,10 @@ ul {
     align-items: center;
     overflow: hidden;
   }
-
   .city-slider__wrapper {
     display: flex;
     gap: 8px;
   }
-
-  /* .city-slider__slide {
-    width: 74px;
-    height: 28px;
-  } */
-
   .city-slider__wrapper .city-slider__slide {
     display: flex;
     border-radius: 20px;
@@ -265,7 +261,6 @@ ul {
     text-decoration-skip-ink: none;
     color: #fff;
   }
-
   .btn-today,
   .btn-five {
     border-radius: 20px;
@@ -281,14 +276,12 @@ ul {
     text-align: center;
     color: #000;
   }
-
   .button-next {
     display: flex;
     justify-content: center;
     align-items: center;
     left: 110%;
   }
-
   .button-prev {
     display: flex;
     justify-content: center;
@@ -316,7 +309,6 @@ ul {
     position: absolute;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   }
-
   .wrapper .button-prev::after,
   .wrapper .button-next::after {
     color: #000000;
@@ -325,13 +317,14 @@ ul {
   .wrapper-with-margin {
     margin-bottom: 271px;
   }
-
   .buttonsOneOrFive {
     display: flex;
-    height: 28px;
     margin-bottom: 32px;
   }
-
+  .btn-list {
+    display: flex;
+    align-items: center;
+  }
   .btn-disActive {
     opacity: 0.5;
   }
@@ -394,7 +387,7 @@ ul {
     background-color: #27384a;
   }
 
-  .teperature-span {
+  .temperature-span {
     font-weight: 400;
     font-size: 14px;
     text-align: center;
@@ -453,7 +446,6 @@ ul {
   .wrapper {
     margin-left: 31px;
   }
-
   .weather__wrapper-oneDay {
     margin: 0 12px;
   }
@@ -487,8 +479,7 @@ ul {
     margin-top: 8px;
   }
   .buttonsOneOrFive {
-    margin: 0 184px;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
   }
   .btn-today,
   .btn-five {
@@ -545,6 +536,10 @@ ul {
     text-align: right;
     color: #fff;
   }
+  .weather-info-item {
+    width: 100px;
+    height: 180px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -578,12 +573,13 @@ ul {
     height: 289px;
   }
   .buttonsOneOrFive {
-    display: flex;
-    justify-content: end;
-    margin-left: 0;
-    margin-top: 0;
-    margin-bottom: 85px;
-    margin-right: 16px;
+  }
+  .city-name {
+    width: 290px;
+    height: 40px;
+    margin-left: 495px;
+    margin-right: 84px;
+    font-size: 28px;
   }
   .weather-imgOneDay {
     width: 56px;
@@ -627,5 +623,60 @@ ul {
   }
   .phrase {
     padding-right: 16px;
+  }
+  .weather__card {
+    padding: 40px 95px;
+  }
+  .weather-info-item {
+    width: 181px;
+    height: 227px;
+  }
+  .day {
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.04em;
+    margin-bottom: 8px;
+  }
+  .date {
+    font-weight: 400;
+    font-size: 25px;
+    letter-spacing: 0.04em;
+    margin-bottom: 23px;
+  }
+  .weather-img {
+    width: 35px;
+    height: 35px;
+    margin: 0 auto;
+  }
+  .temperature {
+    height: 60px;
+  }
+  .min-temperature {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    opacity: 0.55;
+  }
+  .max-temperature {
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    opacity: 0.55;
+  }
+  .temperature-span {
+    font-weight: 700;
+    font-size: 25px;
+  }
+  .more-info-card {
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-align: center;
+    color: #fff;
+    opacity: 0.3;
+    margin: 0 auto;
   }
 }
