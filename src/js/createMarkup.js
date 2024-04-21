@@ -1,11 +1,7 @@
 import { format } from 'date-fns';
 
-const weatherWrapper = document.querySelector('.weather__wrapper');
 const swiperList = document.querySelector('.city-slider__wrapper');
 const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
-const weatherWrapperOneDayDate = document.querySelector(
-  '.weather__wrapper-oneDayDate'
-);
 const cityName = document.querySelector('.city-name');
 const weatherInfo = document.querySelector('.weather-info');
 
@@ -52,7 +48,7 @@ export const createMarkupFiveDays = data => {
                   0
                 )}&#176;</span></div>
               </div>
-              <p class="more-info-card">more info</p>
+              <button class="more-info-btn">more info</button>
           </li>`;
   });
 
@@ -93,56 +89,43 @@ export const createMarkupFiveDays = data => {
   weatherInfo.innerHTML = markupFive;
   cityName.textContent = data.city.name + ', ' + data.city.country;
 
-  // if (screenWidth >= 768) {
-  //   numItems = 5;
-  // } else if (screenWidth >= 320) {
-  //   numItems = 3;
-  // }
+  // const moreInfo = document.querySelector('.more-info-btn');
+  // moreInfo.addEventListener('click', moreInfoClicked);
 
-  // const weatherInfo = document.querySelector('.weather-info');
-
-  // const itemsMarkup = newList.map(el => {
-  //   console.log(el);
-  //   return `
-  //         <li class="weather-info-item">
-  //             <p class="day">${el.day}</p>
-  //             <p class="date">${el.date}</p>
-  //             <img class="weather-img" src="https://openweathermap.org/img/wn/${
-  //               el.weather[0].icon
-  //             }@2x.png" alt="${el.weather[0].description}" />
-  //             <div class="temperature">
-  //               <div><p class="min-temperature">min </p>
-  //               <span class="teperature-span">${el.main.temp_min.toFixed(
-  //                 0
-  //               )}&#176;</span></div>
-  //               <div><p class="max-temperature">max </p>
-  //               <span class="teperature-span">${el.main.temp_max.toFixed(
-  //                 0
-  //               )}&#176;</span></div>
-  //             </div>
-  //             <p class="more-info-card">more info</p>
-  //         </li>`;
-  // });
-
-  // weatherInfo.innerHTML = itemsMarkup;
-
-  //   const moreInfo = document.querySelector('.more-info-card');
-
-  //   moreInfo.addEventListener('click', () => {
-  //     const createMoreMarkup = `<div><ul><li></li></ul></div>`;
-  //   });
+  //   const moreInfoClicked = data => {
+  //     newList.map(el => {
+  //       return ` <div class="more-info">
+  //     <ul class="more-info-list">
+  //       <li class="more-info-item">
+  //         <p class="weather-time"></p>
+  //         <img class="weather-img" src="https://openweathermap.org/img/wn/${
+  //           el.icon
+  //         }@2x.png" alt="${el.description}" />
+  //         <p class="temperature-moreInfo">${el.temp.toFixed(0)}</p>
+  //         <div>
+  //           <svg class="barometer" width="20px" height="20px">
+  //             <use href="../img/symbol-defs.svg#icon-barometer"></use>
+  //           </svg>
+  //           <p class="barometer-value">${el}</p>
+  //         </div>
+  //         <div>
+  //           <svg class="humidity" width="20px" height="20px">
+  //             <use href="../img/symbol-defs.svg#icon-humidity"></use>
+  //           </svg>
+  //           <p class="humidity-value"></p>
+  //         </div>
+  //         <div>
+  //           <svg class="wind" width="20px" height="20px">
+  //             <use href="../img/symbol-defs.svg#icon-wind"></use>
+  //           </svg>
+  //           <p class="wind-value"></p>
+  //         </div>
+  //       </li>
+  //     </ul>
+  //   </div>`;
+  //     });
+  //   };
 };
-
-// const newList = data.list.reduce((acc, item, index) => {
-//   const day = format(new Date(item.dt * 1000), 'EEEE');
-//   if (acc.length > 0 && day === acc[acc.length - 1].day) {
-//     acc[acc.length - 1].day = day;
-//   } else {
-//     acc.push({ day });
-//   }
-//   return acc;
-// }, []);
-// console.log(newList);
 
 export const createFavoriteCities = items => {
   const markup = items
