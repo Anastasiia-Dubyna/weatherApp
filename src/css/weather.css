@@ -292,11 +292,13 @@ ul {
     transform: rotate(90deg) scaleX(-1);
     stroke-width: 1.5px;
     font-size: 16px;
+    stroke: #000;
   }
   .button-next-img {
     transform: rotate(-90deg) scaleX(-1);
     stroke-width: 1.5px;
     font-size: 16px;
+    stroke: #000;
   }
   .wrapper .button-next,
   .wrapper .button-prev {
@@ -426,6 +428,9 @@ ul {
     width: 28px;
     height: 28px;
     border: none;
+  }
+  .elipse {
+    stroke: white;
   }
 }
 
@@ -566,6 +571,7 @@ ul {
   }
   .weather__card-oneDay {
     width: 411px;
+    margin-top: 80px;
   }
   .weather__card-oneDay {
     border-radius: 34px 0 0 34px;
@@ -650,6 +656,8 @@ ul {
   }
   .temperature {
     height: 60px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
   .min-temperature {
     font-weight: 400;
@@ -666,8 +674,10 @@ ul {
     opacity: 0.55;
   }
   .temperature-span {
-    font-weight: 700;
-    font-size: 25px;
+    font-weight: 400;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
   }
   .more-info-btn {
     background-color: transparent;

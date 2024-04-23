@@ -38,5 +38,45 @@ export const getWeatherForFiveDays = async ({ latitude, longitude }) => {
     },
   });
   console.log(data);
-  return data;
+  return data.list.reduce((acc, { dt_txt, weather, main, wind }, index) => {
+    const day = format(new Date(dt_txt), 'EEEE');
+    const date = format(new Date(dt_txt), 'dd LLL');
+    const time = format(new Date(dt_txt), 'kk:mm');
+    const temp = acc.length;
+    const weatherByHours = {
+      temp: main.temp,
+      pressure: main.pressure,
+      humidity: main.humidity,
+      wind: wind.speed,
+      icon: weather[0].icon,
+      time,
+    };
+    if (day === acc[acc?.length - 1]?.day) {
+      acc[acc.length - 1].weather.push(weatherByHours);
+      acc[acc.length - 1].min += main.temp_min;
+      acc[acc.length - 1].max += main.temp_max;
+    } else {
+      if (acc.length > 0) {
+        const lastEl = acc[acc.length - 1];
+        lastEl.min = Math.round(lastEl.min / lastEl.weather.length);
+        lastEl.max = Math.round(lastEl.max / lastEl.weather.length);
+      }
+      acc.push({
+        day,
+        date,
+        weather: [weatherByHours],
+        icon: weather[0].icon,
+        min: main.temp_min,
+        max: main.temp_max,
+      });
+    }
+    console.log('length', acc.length);
+    console.log(temp);
+    if (index === 39) {
+      const lastEl = acc[acc.length - 1];
+      lastEl.min = Math.round(lastEl.min / lastEl.weather.length);
+      lastEl.max = Math.round(lastEl.max / lastEl.weather.length);
+    }
+    return acc;
+  }, []);
 };
