@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { format } from 'date-fns';
 
 const instance = axios.create({
   baseURL: 'https://api.openweathermap.org/data/2.5',
@@ -38,11 +39,14 @@ export const getWeatherForFiveDays = async ({ latitude, longitude }) => {
     },
   });
   console.log(data);
+
   return data.list.reduce((acc, { dt_txt, weather, main, wind }, index) => {
     const day = format(new Date(dt_txt), 'EEEE');
     const date = format(new Date(dt_txt), 'dd LLL');
     const time = format(new Date(dt_txt), 'kk:mm');
-    const temp = acc.length;
+    const cityName = data.city.name;
+    const country = data.city.country;
+    // const temp = acc.length;
     const weatherByHours = {
       temp: main.temp,
       pressure: main.pressure,
@@ -62,6 +66,8 @@ export const getWeatherForFiveDays = async ({ latitude, longitude }) => {
         lastEl.max = Math.round(lastEl.max / lastEl.weather.length);
       }
       acc.push({
+        cityName,
+        country,
         day,
         date,
         weather: [weatherByHours],
@@ -70,8 +76,8 @@ export const getWeatherForFiveDays = async ({ latitude, longitude }) => {
         max: main.temp_max,
       });
     }
-    console.log('length', acc.length);
-    console.log(temp);
+    // console.log('length', acc.length);
+    // console.log(temp);
     if (index === 39) {
       const lastEl = acc[acc.length - 1];
       lastEl.min = Math.round(lastEl.min / lastEl.weather.length);

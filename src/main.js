@@ -1,5 +1,9 @@
 import 'material-icons/iconfont/material-icons.css';
-import { createMarkupFiveDays, createMarkupOneDay } from './js/createMarkup';
+import {
+  createMarkupFiveDays,
+  createMarkupFiveDaysMoreInfo,
+  createMarkupOneDay,
+} from './js/createMarkup';
 import {
   getWeatherByCoords,
   getWeatherByQuery,
@@ -72,11 +76,15 @@ function fiveDaysInfo(e) {
 }
 
 const weatherInfo = document.querySelector('.weather-info');
+const weatherCard = document.querySelector('.weather__card');
+const moreInfo = document.querySelector('.more-info');
 weatherInfo.addEventListener('click', wheatherInfoClick);
 
 function wheatherInfoClick(e) {
   if (!e.target.classList.contains('more-info-btn')) return;
-
+  weatherCard.style.height = '556px';
+  moreInfo.style.display = 'block';
+  getWeatherForFiveDays(coords).then(createMarkupFiveDaysMoreInfo);
   //   const moreInfoClicked = data => {
   //     newList.map(el => {
   //       return ` <div class="more-info">
