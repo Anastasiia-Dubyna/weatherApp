@@ -80,7 +80,7 @@ ul {
   }
 
   .weather__card {
-    width: 1248px;
+    width: 280px;
     height: 272px;
     padding: 30px;
     margin: 0 auto;
@@ -451,6 +451,22 @@ ul {
     display: flex;
     gap: 10px;
   }
+  .weather-info-item {
+    width: 61px;
+    height: 146px;
+  }
+  .more-info-btn {
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+    font-size: 14px;
+    text-decoration: underline;
+    text-decoration-skip-ink: none;
+    text-align: center;
+    color: #fff;
+    opacity: 0.3;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -507,12 +523,16 @@ ul {
     height: 46px;
   }
   .buttonsOneOrFive {
+    display: block;
     margin-bottom: 20px;
   }
   .btn-today,
   .btn-five {
     width: 152px;
     height: 27px;
+  }
+  .btn-list {
+    justify-content: center;
   }
   .weather__card-date {
     width: 704px;
@@ -570,6 +590,13 @@ ul {
   }
   .weather-info-button {
     height: 20px;
+  }
+  .weather__card {
+    width: 704px;
+    height: 260px;
+  }
+  .more-info-btn {
+    margin-top: 16px;
   }
 }
 
@@ -654,8 +681,16 @@ ul {
   .phrase {
     padding-right: 16px;
   }
+  .buttonsOneOrFive {
+    display: flex;
+  }
+  .btn-list {
+    justify-content: end;
+  }
   .weather__card {
     padding: 40px 95px;
+    width: 1248px;
+    height: 272px;
   }
   .weather-info-item {
     width: 181px;
@@ -703,18 +738,6 @@ ul {
     text-align: center;
     color: #fff;
   }
-  .more-info-btn {
-    background-color: transparent;
-    border: none;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: underline;
-    text-decoration-skip-ink: none;
-    text-align: center;
-    color: #fff;
-    opacity: 0.3;
-    margin: 0 auto;
-  }
   .more-info-item {
     border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 25px;
@@ -742,5 +765,8 @@ ul {
     font-size: 14px;
     color: #fff;
     opacity: 0.54;
+  }
+  .more-info-btn {
+    margin-top: 0;
   }
 }
