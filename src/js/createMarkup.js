@@ -1,4 +1,5 @@
 import { format } from 'date-fns';
+import { swiperFiveDays } from './swiper';
 
 const swiperList = document.querySelector('.city-slider__wrapper');
 const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
@@ -11,17 +12,21 @@ export const createMarkupFiveDays = list => {
     .map(el => {
       cityNameForFiveDaysInfo.textContent = el.cityName + ', ' + el.country;
       return `
-          <li class="weather-info-item">
+          <li class="weather-info-item swiper-slide">
               <p class="day">${el.day}</p>
               <p class="date">${el.date}</p>
-              <img class="weather-img" src="https://openweathermap.org/img/wn/${el.icon}.png" alt="${el.description}" />
+              <img class="weather-img" src="https://openweathermap.org/img/wn/${
+                el.icon
+              }.png" alt="${el.description}" />
               <div class="temperature">
                 <div><p class="min-temperature">min </p>
                 <span class="temperature-span">${el.min}&#176;</span></div>
                 <div><p class="max-temperature">max </p>
                 <span class="temperature-span">${el.max}&#176;</span></div>
               </div>
-              <div class="weather-info-button"><button class="more-info-btn" >more info</button></div>
+              <div class="weather-info-button"><button class="more-info-btn" data-weather='${JSON.stringify(
+                el.weather
+              )}'>more info</button></div>
           </li>`;
     })
     .join('');
@@ -60,7 +65,7 @@ export const createMarkupFiveDays = list => {
   //   });
 
   weatherInfo.innerHTML = markupFive;
-
+  swiperFiveDays.update();
   //   const moreInfoClicked = data => {
   //     newList.map(el => {
   //       return ` <div class="more-info">
@@ -94,46 +99,6 @@ export const createMarkupFiveDays = list => {
   //   </div>`;
   //     });
   //   };
-};
-
-const moreInfoList = document.querySelector('.more-info-list');
-
-export const createMarkupFiveDaysMoreInfo = list => {
-  console.log(list);
-  const markupMoreInfo = list
-    .map(el => {
-      console.log(el);
-      return `<li class="more-info-item">
-      <div class="more-info-item-div">
-       <p class="weather-time">${el.weather[0].time}</p>
-          <img class="weather-img" src="https://openweathermap.org/img/wn/${
-            el.icon
-          }@2x.png" alt="${el.description}" />
-          <p class="temperature-moreInfo">${Math.round(el.weather[0].temp)}</p>
-          <div class="barometer-container">
-            <svg class="barometer" width="20px" height="20px">
-              <use href="../img/symbol-defs.svg#icon-barometer"></use>
-            </svg>
-            <p class="barometer-value">${el.weather[0].pressure}</p>
-          </div>
-          <div class="humidity-container">
-            <svg class="humidity" width="20px" height="20px">
-              <use href="../img/symbol-defs.svg#icon-humidity"></use>
-            </svg>
-            <p class="humidity-value">${el.weather[0].humidity}</p>
-          </div>
-          <div class="wind-container">
-            <svg class="wind" width="20px" height="20px">
-              <use href="../img/symbol-defs.svg#icon-wind"></use>
-            </svg>
-            <p class="wind-value">${el.weather[0].wind}</p>
-          </div>
-      </div> 
-    </li>`;
-    })
-    .join('');
-
-  moreInfoList.innerHTML = markupMoreInfo;
 };
 
 export const createFavoriteCities = items => {
