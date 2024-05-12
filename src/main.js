@@ -22,7 +22,6 @@ function loadPage() {
   const success = pos => {
     coords = pos.coords;
     getWeatherByCoords(pos.coords).then(createMarkupOneDay);
-    getWeatherForFiveDays(pos.coords).then(createMarkupFiveDays);
     // getWeatherByCoords(pos.coords).then(createMarkupWeatherDate);
 
     getUserInfo(pos.coords).then(getPhotos).then(setBackground);
@@ -63,8 +62,8 @@ function fiveDaysInfo(e) {
   }
   oneDay.classList.remove('btn-disActive');
   fiveDay.classList.add('btn-disActive');
-  oneDay.disabled = true;
-  fiveDay.disabled = false;
+  oneDay.disabled = false;
+  fiveDay.disabled = true;
   weatherWrapperOneDay.style.display = 'flex';
   weatherWrapperOneDayDate.style.display = 'flex';
   weatherWrapper.style.display = 'none';
@@ -86,13 +85,13 @@ function wheatherInfoClick(e) {
   const newList = JSON.parse(e.target.dataset.weather);
   const markupMoreInfo = newList
     .map(el => {
-      return `<li class="more-info-item">
+      return `<li class="more-info-item swiper-slide">
       <div class="more-info-item-div">
        <p class="weather-time">${el.time}</p>
           <img class="weather-img" src="https://openweathermap.org/img/wn/${
             el.icon
           }@2x.png" alt="${el.description}" />
-          <p class="temperature-moreInfo">${Math.round(el.temp)}</p>
+          <p class="temperature-moreInfo">${Math.round(el.temp)}&#176;</p>
           <div class="barometer-container">
             <svg class="barometer" width="20px" height="20px">
               <use href="../img/symbol-defs.svg#icon-barometer"></use>

@@ -9,12 +9,8 @@ export const swiper = new Swiper('.city-slider', {
     nextEl: '.button-next-favorite',
     prevEl: '.button-prev-favorite',
   },
-  // slidesPerView: 'auto',
   loop: false,
   createElements: true,
-  // centeredSlides: false,
-
-  // slidesPerView: 'auto',
   breakpoints: {
     320: {
       slidesPerView: 2,
@@ -52,6 +48,35 @@ export const swiperFiveDays = new Swiper('.fiveDaysSwiper-slider', {
     1280: {
       slidesPerView: 5,
       spaceBetween: 32,
+    },
+  },
+});
+
+export const swiperMoreInfo = new Swiper('.weather-slider', {
+  modules: [Navigation],
+  navigation: {
+    nextEl: '.button-next-weather',
+    prevEl: '.button-prev-weather',
+  },
+  // slidesPerView: 3,
+  loop: false,
+  createElements: true,
+  scrollbar: {
+    el: '.swiper-scrollbar',
+    draggable: true,
+  },
+  breakpoints: {
+    320: {
+      slidesPerView: 2,
+      spaceBetween: 16,
+    },
+    768: {
+      slidesPerView: 5,
+      spaceBetween: 16,
+    },
+    1280: {
+      slidesPerView: 7,
+      spaceBetween: 16,
     },
   },
 });

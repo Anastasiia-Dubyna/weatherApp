@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { swiperFiveDays } from './swiper';
+import { swiperFiveDays, swiperMoreInfo } from './swiper';
 
 const swiperList = document.querySelector('.city-slider__wrapper');
 const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
@@ -31,74 +31,9 @@ export const createMarkupFiveDays = list => {
     })
     .join('');
 
-  // const dates = data.list
-  //   .map(element => element.dt)
-  //   .filter((el, index, arr) => arr.indexOf(el) === index);
-  // console.log(dates);
-  // const listItem = data.list.map(el => {
-  //   console.log(el);
-  //   data.list.filter(elem => elem.dt === el);
-  // });
-  // console.log(listItem);
-  //   .map(el => {
-  //     const day = format(new Date(el.dt * 1000), 'EEEE');
-  //     const date = format(new Date(el.dt * 1000), 'cc LLL');
-  //     return `
-  //         <li class="weather-info-item">
-  //             <p class="day">${day}</p>
-  //             <p class="date">${date}</p>
-  //             <img class="weather-img" src="https://openweathermap.org/img/wn/${
-  //               el.weather[0].icon
-  //             }@2x.png" alt="${el.weather[0].description}" />
-  //             <div class="temperature">
-  //               <div><p class="min-temperature">min </p>
-  //               <span class="teperature-span">${el.main.temp_min.toFixed(
-  //                 0
-  //               )}&#176;</span></div>
-  //               <div><p class="max-temperature">max </p>
-  //               <span class="teperature-span">${el.main.temp_max.toFixed(
-  //                 0
-  //               )}&#176;</span></div>
-  //             </div>
-  //             <p class="more-info-card">more info</p>
-  //         </li>`;
-  //   });
-
   weatherInfo.innerHTML = markupFive;
   swiperFiveDays.update();
-  //   const moreInfoClicked = data => {
-  //     newList.map(el => {
-  //       return ` <div class="more-info">
-  //     <ul class="more-info-list">
-  //       <li class="more-info-item">
-  //         <p class="weather-time"></p>
-  //         <img class="weather-img" src="https://openweathermap.org/img/wn/${
-  //           el.icon
-  //         }@2x.png" alt="${el.description}" />
-  //         <p class="temperature-moreInfo">${el.temp.toFixed(0)}</p>
-  //         <div>
-  //           <svg class="barometer" width="20px" height="20px">
-  //             <use href="../img/symbol-defs.svg#icon-barometer"></use>
-  //           </svg>
-  //           <p class="barometer-value">${el}</p>
-  //         </div>
-  //         <div>
-  //           <svg class="humidity" width="20px" height="20px">
-  //             <use href="../img/symbol-defs.svg#icon-humidity"></use>
-  //           </svg>
-  //           <p class="humidity-value"></p>
-  //         </div>
-  //         <div>
-  //           <svg class="wind" width="20px" height="20px">
-  //             <use href="../img/symbol-defs.svg#icon-wind"></use>
-  //           </svg>
-  //           <p class="wind-value"></p>
-  //         </div>
-  //       </li>
-  //     </ul>
-  //   </div>`;
-  //     });
-  //   };
+  swiperMoreInfo.update();
 };
 
 export const createFavoriteCities = items => {
