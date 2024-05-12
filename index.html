@@ -16,7 +16,7 @@
     <script type="module" crossorigin src="/weatherApp/commonHelpers.js"></script>
     <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-b2ad93f7.js">
     <link rel="stylesheet" href="/weatherApp/assets/vendor-65fbc4ea.css">
-    <link rel="stylesheet" href="/weatherApp/assets/index-d2dffb89.css">
+    <link rel="stylesheet" href="/weatherApp/assets/index-23745c60.css">
   </head>
   <body>
     <section class="weather">
@@ -70,7 +70,7 @@
         </li>
       </ul>
     </div>
-    <div class="weather__wrapper-oneDayDate" style="display: none">
+    <div class="weather__wrapper-oneDayDate">
       <div class="weather__card-date">
         <ul class="oneDayDateList">
           <li class="oneDayDateItem">
@@ -107,13 +107,12 @@
         <p class="phrase-autor">Dale Evans</p>
       </div>
     </div>
-    <div class="weather__wrapper">
+    <div class="weather__wrapper" style="display: none">
       <div class="weather__card">
         <h2 class="city-name-card"></h2>
         <div class="wrapper-fiveDaysSwiper">
           <div class="fiveDaysSwiper-slider swiper-container">
             <ul class="weather-info list swiper-wrapper"></ul>
-
             <div class="swiper-scrollbar"></div>
           </div>
           <div class="buttons-fiveDaysSwiper">
@@ -130,177 +129,24 @@
           </div>
         </div>
 
-        <div class="more-info" style="display: none">
+        <div class="more-info">
           <div class="wrapper-swiper">
-            <div class="weather-slider">
-              <ul class="more-info-list">
-                <li class="more-info-item">
-                  <div class="more-info-item-div">
-                    <p class="weather-time">${el.time}</p>
-                    <img
-                      class="weather-img"
-                      src="https://openweathermap.org/img/wn/${
-            el.icon
-          }@2x.png"
-                      alt="${el.description}"
-                    />
-                    <p class="temperature-moreInfo">${Math.round(el.temp)}</p>
-                    <div class="barometer-container">
-                      <svg class="barometer" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-barometer"></use>
-                      </svg>
-                      <p class="barometer-value">${el.pressure}</p>
-                    </div>
-                    <div class="humidity-container">
-                      <svg class="humidity" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-humidity"></use>
-                      </svg>
-                      <p class="humidity-value">${el.humidity}</p>
-                    </div>
-                    <div class="wind-container">
-                      <svg class="wind" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-wind"></use>
-                      </svg>
-                      <p class="wind-value">${el.wind}</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="more-info-item">
-                  <div class="more-info-item-div">
-                    <p class="weather-time">${el.time}</p>
-                    <img
-                      class="weather-img"
-                      src="https://openweathermap.org/img/wn/${
-            el.icon
-          }@2x.png"
-                      alt="${el.description}"
-                    />
-                    <p class="temperature-moreInfo">${Math.round(el.temp)}</p>
-                    <div class="barometer-container">
-                      <svg class="barometer" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-barometer"></use>
-                      </svg>
-                      <p class="barometer-value">${el.pressure}</p>
-                    </div>
-                    <div class="humidity-container">
-                      <svg class="humidity" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-humidity"></use>
-                      </svg>
-                      <p class="humidity-value">${el.humidity}</p>
-                    </div>
-                    <div class="wind-container">
-                      <svg class="wind" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-wind"></use>
-                      </svg>
-                      <p class="wind-value">${el.wind}</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="more-info-item">
-                  <div class="more-info-item-div">
-                    <p class="weather-time">${el.time}</p>
-                    <img
-                      class="weather-img"
-                      src="https://openweathermap.org/img/wn/${
-            el.icon
-          }@2x.png"
-                      alt="${el.description}"
-                    />
-                    <p class="temperature-moreInfo">${Math.round(el.temp)}</p>
-                    <div class="barometer-container">
-                      <svg class="barometer" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-barometer"></use>
-                      </svg>
-                      <p class="barometer-value">${el.pressure}</p>
-                    </div>
-                    <div class="humidity-container">
-                      <svg class="humidity" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-humidity"></use>
-                      </svg>
-                      <p class="humidity-value">${el.humidity}</p>
-                    </div>
-                    <div class="wind-container">
-                      <svg class="wind" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-wind"></use>
-                      </svg>
-                      <p class="wind-value">${el.wind}</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="more-info-item">
-                  <div class="more-info-item-div">
-                    <p class="weather-time">${el.time}</p>
-                    <img
-                      class="weather-img"
-                      src="https://openweathermap.org/img/wn/${
-            el.icon
-          }@2x.png"
-                      alt="${el.description}"
-                    />
-                    <p class="temperature-moreInfo">${Math.round(el.temp)}</p>
-                    <div class="barometer-container">
-                      <svg class="barometer" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-barometer"></use>
-                      </svg>
-                      <p class="barometer-value">${el.pressure}</p>
-                    </div>
-                    <div class="humidity-container">
-                      <svg class="humidity" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-humidity"></use>
-                      </svg>
-                      <p class="humidity-value">${el.humidity}</p>
-                    </div>
-                    <div class="wind-container">
-                      <svg class="wind" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-wind"></use>
-                      </svg>
-                      <p class="wind-value">${el.wind}</p>
-                    </div>
-                  </div>
-                </li>
-                <li class="more-info-item">
-                  <div class="more-info-item-div">
-                    <p class="weather-time">${el.time}</p>
-                    <img
-                      class="weather-img"
-                      src="https://openweathermap.org/img/wn/${
-            el.icon
-          }@2x.png"
-                      alt="${el.description}"
-                    />
-                    <p class="temperature-moreInfo">${Math.round(el.temp)}</p>
-                    <div class="barometer-container">
-                      <svg class="barometer" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-barometer"></use>
-                      </svg>
-                      <p class="barometer-value">${el.pressure}</p>
-                    </div>
-                    <div class="humidity-container">
-                      <svg class="humidity" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-humidity"></use>
-                      </svg>
-                      <p class="humidity-value">${el.humidity}</p>
-                    </div>
-                    <div class="wind-container">
-                      <svg class="wind" width="20px" height="20px">
-                        <use href="../img/symbol-defs.svg#icon-wind"></use>
-                      </svg>
-                      <p class="wind-value">${el.wind}</p>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+            <div class="weather-slider swiper-container">
+              <ul class="more-info-list swiper-wrapper"></ul>
               <div class="swiper-scrollbar"></div>
             </div>
-            <div class="button-prev-weather">
-              <svg class="button-prev-img" width="10px" height="12px">
-                <use href="../img/symbol-defs.svg#icon-vector"></use>
-              </svg>
-            </div>
-            <div class="button-next-weather">
-              <svg class="button-next-img" width="10px" height="12px">
-                <use href="../img/symbol-defs.svg#icon-vector"></use>
-              </svg>
+
+            <div class="buttons-moreInfoSwiper">
+              <div class="button-prev-weather">
+                <svg class="button-prev-img" width="10px" height="12px">
+                  <use href="../img/symbol-defs.svg#icon-vector"></use>
+                </svg>
+              </div>
+              <div class="button-next-weather">
+                <svg class="button-next-img" width="10px" height="12px">
+                  <use href="../img/symbol-defs.svg#icon-vector"></use>
+                </svg>
+              </div>
             </div>
           </div>
         </div>
