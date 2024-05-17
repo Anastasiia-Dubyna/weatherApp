@@ -14,10 +14,11 @@
 
     
     <script type="module" crossorigin src="/weatherApp/commonHelpers.js"></script>
-    <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-b2ad93f7.js">
+    <link rel="modulepreload" crossorigin href="/weatherApp/assets/vendor-035d6bdb.js">
     <link rel="stylesheet" href="/weatherApp/assets/vendor-65fbc4ea.css">
-    <link rel="stylesheet" href="/weatherApp/assets/index-23745c60.css">
+    <link rel="stylesheet" href="/weatherApp/assets/index-8e9fdf01.css">
   </head>
+
   <body>
     <section class="weather">
   <div class="container">
@@ -44,8 +45,6 @@
     <div class="wrapper">
       <div class="city-slider swiper-container">
         <ul class="city-slider__wrapper swiper-wrapper"></ul>
-
-        <div class="swiper-scrollbar"></div>
       </div>
       <div class="button-prev-favorite">
         <svg class="button-prev-img" width="10px" height="12px">
@@ -113,7 +112,6 @@
         <div class="wrapper-fiveDaysSwiper">
           <div class="fiveDaysSwiper-slider swiper-container">
             <ul class="weather-info list swiper-wrapper"></ul>
-            <div class="swiper-scrollbar"></div>
           </div>
           <div class="buttons-fiveDaysSwiper">
             <div class="button-prev-fiveDaysSwiper">
@@ -161,9 +159,11 @@
         <use href="../img/symbol-defs.svg#icon-vector"></use>
       </svg>
     </button>
+    <div class="weather-chart">
+      <canvas id="myChart"></canvas>
+    </div>
   </div>
 </section>
-
 
     
   </body>
