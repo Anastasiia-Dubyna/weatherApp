@@ -491,11 +491,11 @@ ul {
   .buttons-moreInfoSwiper {
     display: none;
   }
-  .weather-slider .swiper-scrollbar {
+  /* .weather-slider .swiper-scrollbar {
     margin-top: 20px;
     height: 2px;
     background-color: #ff6b09;
-  }
+  } */
   .temperature-moreInfo {
     font-weight: 700;
     font-size: 18px;
@@ -655,6 +655,7 @@ ul {
   .weather-info .swiper-slide {
     height: 180px;
   }
+
   .weather-info-button {
     height: 20px;
   }
@@ -696,9 +697,9 @@ ul {
     position: absolute;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   } */
-  .weather-slider .swiper-scrollbar {
+  /* .weather-slider .swiper-scrollbar {
     display: none;
-  }
+  } */
 }
 
 @media screen and (min-width: 1280px) {
@@ -791,7 +792,7 @@ ul {
   .weather__card {
     padding: 40px 95px;
     width: 1248px;
-    height: 272px;
+    height: 307px;
   }
   .weather-info-item {
     width: 181px;
@@ -869,6 +870,12 @@ ul {
   }
   .more-info-btn {
     margin-top: 0;
+  }
+  .weather-info .swiper-slide {
+    height: 227px;
+  }
+  .weather-chart {
+    background-color: rgba(16, 33, 54, 0.8);
   }
   /* .weather-info {
     gap: 32px;

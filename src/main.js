@@ -12,6 +12,7 @@ import { updateCurrentTime } from './js/currentTime.js';
 import { updateFavorites } from './js/saveFavorite.js';
 import { format } from 'date-fns';
 import { list } from './js/list.js';
+import { myChart } from './js/weatherChart.js';
 
 let coords = {};
 loadPage();
@@ -62,8 +63,8 @@ function fiveDaysInfo(e) {
   }
   oneDay.classList.remove('btn-disActive');
   fiveDay.classList.add('btn-disActive');
-  oneDay.disabled = false;
-  fiveDay.disabled = true;
+  oneDay.disabled = true;
+  fiveDay.disabled = false;
   weatherWrapperOneDay.style.display = 'flex';
   weatherWrapperOneDayDate.style.display = 'flex';
   weatherWrapper.style.display = 'none';

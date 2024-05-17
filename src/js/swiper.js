@@ -43,7 +43,7 @@ export const swiperFiveDays = new Swiper('.fiveDaysSwiper-slider', {
     768: {
       slidesPerView: 5,
       spaceBetween: 24,
-      height: 180,
+      // height: 181,
     },
     1280: {
       slidesPerView: 5,
@@ -61,10 +61,6 @@ export const swiperMoreInfo = new Swiper('.weather-slider', {
   // slidesPerView: 3,
   loop: false,
   createElements: true,
-  scrollbar: {
-    el: '.swiper-scrollbar',
-    draggable: true,
-  },
   breakpoints: {
     320: {
       slidesPerView: 2,

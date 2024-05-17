@@ -16,6 +16,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^1.6.8",
+    "chart.js": "^4.4.3",
     "date-fns": "^3.6.0",
     "material-icons": "^1.13.12",
     "modern-normalize": "^2.0.0",
