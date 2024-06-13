@@ -31,6 +31,12 @@ function loadPage() {
   navigator.geolocation.getCurrentPosition(success);
 }
 
+// const searchForm = document.querySelector('.js-search-form');
+// searchForm.addEventListener('submit', function (e) {
+//   e.preventDefault();
+//   getWeatherByQuery(coords).then(data => createMarkupOneDay(data));
+// });
+
 const buttonsOneOrFive = document.querySelector('.buttonsOneOrFive');
 const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
 const weatherWrapperOneDayDate = document.querySelector(

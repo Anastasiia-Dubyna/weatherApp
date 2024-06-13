@@ -7,6 +7,7 @@ const cityNameForFiveDaysInfo = document.querySelector('.city-name');
 const weatherInfo = document.querySelector('.weather-info');
 
 export const createMarkupFiveDays = list => {
+  console.log(list);
   const markupFive = list
     .slice(0, 5)
     .map(el => {
