@@ -1,11 +1,24 @@
 import Chart from 'chart.js/auto';
+import { getWeatherForFiveDays } from '../js/api/weatherApi.js';
+import { format } from 'date-fns';
 
 const ctx = document.getElementById('myChart');
+let chartData = {};
 
-export const myChart = new Chart(ctx, {
+const getChartData = () => {
+  const data = getWeatherForFiveDays();
+  chartData.days = data.list.map(e => format(new Date(dt_txt), 'dd LLL'));
+  // chartData.temp = ;
+  // chartData.humidity = ;
+  // chartData.pressure = ;
+  // chartData.speed = ;
+};
+
+export const myChart = () => getChartData();
+new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ['17 May', '18 May', '19 May', '20 May', '21 May'],
+    labels: chartData.days,
     datasets: [
       {
         label: '— Temperature, C°',

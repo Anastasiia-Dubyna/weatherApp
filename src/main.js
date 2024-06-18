@@ -31,11 +31,15 @@ function loadPage() {
   navigator.geolocation.getCurrentPosition(success);
 }
 
-// const searchForm = document.querySelector('.js-search-form');
-// searchForm.addEventListener('submit', function (e) {
-//   e.preventDefault();
-//   getWeatherByQuery(coords).then(data => createMarkupOneDay(data));
-// });
+const searchInput = document.querySelector('.search-input');
+searchInput.addEventListener('keydown', checkWeather);
+
+function checkWeather() {
+  const enteredCity = searchInput.value;
+  getWeatherByQuery(enteredCity)
+    .then(createMarkupOneDay)
+    .then(createMarkupFiveDays);
+}
 
 const buttonsOneOrFive = document.querySelector('.buttonsOneOrFive');
 const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
