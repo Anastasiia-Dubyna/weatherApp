@@ -49,6 +49,13 @@ const weatherWrapperOneDayDate = document.querySelector(
 const weatherWrapper = document.querySelector('.weather__wrapper');
 const wrapper = document.querySelector('.wrapper');
 const chart = document.querySelector('.chart');
+const showChart = document.querySelector('.btn-show-chart');
+
+showChart.addEventListener('click', showChartFunction);
+let chartData = {};
+function showChartFunction() {
+  myChart(chartData);
+}
 
 buttonsOneOrFive.addEventListener('click', fiveDaysInfo);
 
@@ -68,7 +75,10 @@ function fiveDaysInfo(e) {
     oneDay.disabled = false;
     fiveDay.classList.remove('btn-disActive');
     oneDay.classList.add('btn-disActive');
-    getWeatherForFiveDays(coords).then(createMarkupFiveDays);
+    getWeatherForFiveDays(coords).then(data => {
+      createMarkupFiveDays(data);
+      chartData = data;
+    });
     return;
   }
   oneDay.classList.remove('btn-disActive');

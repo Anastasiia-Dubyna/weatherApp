@@ -38,7 +38,6 @@ export const getWeatherForFiveDays = async ({ latitude, longitude }) => {
       lon: longitude,
     },
   });
-  console.log(data);
 
   return data.list.reduce((acc, { dt_txt, weather, main, wind }, index) => {
     const day = format(new Date(dt_txt), 'EEEE');
