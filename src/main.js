@@ -49,11 +49,15 @@ const weatherWrapperOneDayDate = document.querySelector(
 const weatherWrapper = document.querySelector('.weather__wrapper');
 const wrapper = document.querySelector('.wrapper');
 const chart = document.querySelector('.chart');
+const weatherChart = document.querySelector('.weather-chart');
 const showChart = document.querySelector('.btn-show-chart');
+const showChartText = document.querySelector('.show-chart');
 
 showChart.addEventListener('click', showChartFunction);
+
 let chartData = {};
 function showChartFunction() {
+  weatherChart.style.display = 'flex';
   myChart(chartData);
 }
 

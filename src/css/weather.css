@@ -510,6 +510,17 @@ ul {
     color: #fff;
     opacity: 0.54;
   }
+  .weather-chart {
+    border-radius: 34px;
+    width: 280px;
+    height: 509px;
+    box-shadow: 0 8px 43px 0 rgba(16, 33, 54, 0.6);
+    background: rgba(16, 33, 54, 0.8);
+    margin-top: 8px;
+    margin-bottom: 32px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 @media screen and (min-width: 768px) {
@@ -535,6 +546,7 @@ ul {
     font-size: 18px;
     text-align: center;
     color: #fff;
+    justify-content: center;
   }
   .wrapper {
     width: 400px;
@@ -700,6 +712,13 @@ ul {
   /* .weather-slider .swiper-scrollbar {
     display: none;
   } */
+
+  .weather-chart {
+    width: 704px;
+    height: 459px;
+    padding-top: 24px;
+    padding-bottom: 40px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
@@ -880,4 +899,10 @@ ul {
   /* .weather-info {
     gap: 32px;
   } */
+  .weather-chart {
+    width: 1248px;
+    height: 540px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
 }
