@@ -10,9 +10,8 @@ import { getPhotos } from './js/api/pixabayApi';
 import { setBackground } from './js/helpers/setBackground';
 import { updateCurrentTime } from './js/currentTime.js';
 import { updateFavorites } from './js/saveFavorite.js';
-import { format } from 'date-fns';
-import { list } from './js/list.js';
 import { myChart } from './js/weatherChart.js';
+import { refs } from './js/refs.js';
 
 let coords = {};
 loadPage();
@@ -31,8 +30,7 @@ function loadPage() {
   navigator.geolocation.getCurrentPosition(success);
 }
 
-const searchInput = document.querySelector('.search-input');
-searchInput.addEventListener('keydown', checkWeather);
+refs.searchInput.addEventListener('keydown', checkWeather);
 
 function checkWeather() {
   const enteredCity = searchInput.value;
@@ -41,27 +39,27 @@ function checkWeather() {
     .then(createMarkupFiveDays);
 }
 
-const buttonsOneOrFive = document.querySelector('.buttonsOneOrFive');
-const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
-const weatherWrapperOneDayDate = document.querySelector(
-  '.weather__wrapper-oneDayDate'
-);
-const weatherWrapper = document.querySelector('.weather__wrapper');
-const wrapper = document.querySelector('.wrapper');
-const chart = document.querySelector('.chart');
-const weatherChart = document.querySelector('.weather-chart');
-const showChart = document.querySelector('.btn-show-chart');
-const showChartText = document.querySelector('.show-chart');
-
-showChart.addEventListener('click', showChartFunction);
-
 let chartData = {};
+let chartVisible = false; // Змінна для відстеження стану відображення графіка
+
+refs.showChart.addEventListener('click', showChartFunction);
+
 function showChartFunction() {
-  weatherChart.style.display = 'flex';
-  myChart(chartData);
+  if (!chartVisible) {
+    refs.weatherChart.style.display = 'flex';
+    refs.showChartText.textContent = 'Hide Chart';
+    refs.showChart.style.transform = 'rotate(180deg)';
+    myChart(chartData);
+    chartVisible = true;
+  } else {
+    refs.weatherChart.style.display = 'none';
+    refs.showChartText.textContent = 'Show Chart';
+    refs.showChart.style.transform = 'rotate(0deg)';
+    chartVisible = false;
+  }
 }
 
-buttonsOneOrFive.addEventListener('click', fiveDaysInfo);
+refs.buttonsOneOrFive.addEventListener('click', fiveDaysInfo);
 
 function fiveDaysInfo(e) {
   if (e.target.nodeName !== 'BUTTON') {
@@ -70,11 +68,11 @@ function fiveDaysInfo(e) {
   const fiveDay = document.querySelector('.btn-five');
   const oneDay = document.querySelector('.btn-today');
   if (e.target.dataset.day === 'five') {
-    weatherWrapperOneDay.style.display = 'none';
-    weatherWrapperOneDayDate.style.display = 'none';
-    weatherWrapper.style.display = 'block';
-    chart.style.display = 'block';
-    wrapper.classList.add('wrapper-with-margin');
+    refs.weatherWrapperOneDay.style.display = 'none';
+    refs.weatherWrapperOneDayDate.style.display = 'none';
+    refs.weatherWrapper.style.display = 'block';
+    refs.chart.style.display = 'block';
+    refs.wrapper.classList.add('wrapper-with-margin');
     fiveDay.disabled = true;
     oneDay.disabled = false;
     fiveDay.classList.remove('btn-disActive');
@@ -89,24 +87,19 @@ function fiveDaysInfo(e) {
   fiveDay.classList.add('btn-disActive');
   oneDay.disabled = true;
   fiveDay.disabled = false;
-  weatherWrapperOneDay.style.display = 'flex';
-  weatherWrapperOneDayDate.style.display = 'flex';
-  weatherWrapper.style.display = 'none';
-  chart.style.display = 'none';
-  wrapper.classList.remove('wrapper-with-margin');
+  refs.weatherWrapperOneDay.style.display = 'flex';
+  refs.weatherWrapperOneDayDate.style.display = 'flex';
+  refs.weatherWrapper.style.display = 'none';
+  refs.chart.style.display = 'none';
+  refs.wrapper.classList.remove('wrapper-with-margin');
 }
 
-const weatherInfo = document.querySelector('.weather-info');
-const weatherCard = document.querySelector('.weather__card');
-const moreInfo = document.querySelector('.more-info');
-const moreInfoList = document.querySelector('.more-info-list');
-
-weatherInfo.addEventListener('click', wheatherInfoClick);
+refs.weatherInfo.addEventListener('click', wheatherInfoClick);
 
 function wheatherInfoClick(e) {
   if (!e.target.classList.contains('more-info-btn')) return;
-  weatherCard.style.height = '556px';
-  moreInfo.style.display = 'block';
+  refs.weatherCard.style.height = '556px';
+  refs.moreInfo.style.display = 'block';
   const newList = JSON.parse(e.target.dataset.weather);
   const markupMoreInfo = newList
     .map(el => {
@@ -140,5 +133,5 @@ function wheatherInfoClick(e) {
     })
     .join('');
 
-  moreInfoList.innerHTML = markupMoreInfo;
+  refs.moreInfoList.innerHTML = markupMoreInfo;
 }

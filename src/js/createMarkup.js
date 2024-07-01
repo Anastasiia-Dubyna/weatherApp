@@ -1,16 +1,13 @@
 import { format } from 'date-fns';
 import { swiperFiveDays, swiperMoreInfo } from './swiper';
-
-const swiperList = document.querySelector('.city-slider__wrapper');
-const weatherWrapperOneDay = document.querySelector('.weather__wrapper-oneDay');
-const cityNameForFiveDaysInfo = document.querySelector('.city-name');
-const weatherInfo = document.querySelector('.weather-info');
+import { refs } from './refs';
 
 export const createMarkupFiveDays = list => {
   const markupFive = list
     .slice(0, 5)
     .map(el => {
-      cityNameForFiveDaysInfo.textContent = el.cityName + ', ' + el.country;
+      refs.cityNameForFiveDaysInfo.textContent =
+        el.cityName + ', ' + el.country;
       return `
           <li class="weather-info-item swiper-slide">
               <p class="day">${el.day}</p>
@@ -31,7 +28,7 @@ export const createMarkupFiveDays = list => {
     })
     .join('');
 
-  weatherInfo.innerHTML = markupFive;
+  refs.weatherInfo.innerHTML = markupFive;
   swiperFiveDays.update();
   swiperMoreInfo.update();
 };
@@ -48,7 +45,7 @@ export const createFavoriteCities = items => {
           </svg></button></li>`;
     })
     .join('');
-  swiperList.insertAdjacentHTML('beforeend', markup);
+  refs.swiperList.insertAdjacentHTML('beforeend', markup);
 };
 
 export const createMarkupOneDay = ({ name, main, sys, weather }) => {
@@ -78,7 +75,7 @@ export const createMarkupOneDay = ({ name, main, sys, weather }) => {
       </li>    
       </ul>    
   </div>`;
-  weatherWrapperOneDay.innerHTML = markupOneDay;
+  refs.weatherWrapperOneDay.innerHTML = markupOneDay;
   sunrise.textContent = format(new Date(sys.sunrise * 1000), 'HH:mm');
   sunset.textContent = format(new Date(sys.sunset * 1000), 'HH:mm');
 };

@@ -1,12 +1,18 @@
 import Chart from 'chart.js/auto';
-import { getWeatherForFiveDays } from '../js/api/weatherApi.js';
-import { format } from 'date-fns';
 
 const ctx = document.getElementById('myChart');
 
-const calculateAverage = (arr, key) => {
-  return (arr.reduce((acc, item) => acc + item[key], 0) / arr.length).toFixed(
-    2
+// const calculateAverage = (arr, key) => {
+//   return (arr.reduce((acc, item) => acc + item[key], 0) / arr.length).toFixed(
+//     2
+//   );
+// };
+
+const calculateMax = (arr, key) => {
+  if (arr.length === 0) return null;
+  return arr.reduce(
+    (max, item) => (item[key] > max ? item[key] : max),
+    arr[0][key]
   );
 };
 
@@ -17,10 +23,10 @@ export const myChart = chartData => {
       return {
         ...acc,
         labels: [...acc.labels, date],
-        temp: [...acc.temp, calculateAverage(item.weather, 'temp')],
-        humidity: [...acc.humidity, calculateAverage(item.weather, 'humidity')],
-        speed: [...acc.speed, calculateAverage(item.weather, 'wind')],
-        pressure: [...acc.pressure, calculateAverage(item.weather, 'pressure')],
+        temp: [...acc.temp, calculateMax(item.weather, 'temp')],
+        humidity: [...acc.humidity, calculateMax(item.weather, 'humidity')],
+        speed: [...acc.speed, calculateMax(item.weather, 'wind')],
+        pressure: [...acc.pressure, calculateMax(item.weather, 'pressure')],
       };
     },
     {
