@@ -1,20 +1,7 @@
 import Chart from 'chart.js/auto';
+import { calculateMax } from './helpers/calculateNumbers.js';
 
 const ctx = document.getElementById('myChart');
-
-// const calculateAverage = (arr, key) => {
-//   return (arr.reduce((acc, item) => acc + item[key], 0) / arr.length).toFixed(
-//     2
-//   );
-// };
-
-const calculateMax = (arr, key) => {
-  if (arr.length === 0) return null;
-  return arr.reduce(
-    (max, item) => (item[key] > max ? item[key] : max),
-    arr[0][key]
-  );
-};
 
 export const myChart = chartData => {
   const updateData = chartData.reduce(

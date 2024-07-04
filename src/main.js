@@ -33,7 +33,7 @@ function loadPage() {
 refs.searchInput.addEventListener('keydown', checkWeather);
 
 function checkWeather() {
-  const enteredCity = searchInput.value;
+  const enteredCity = refs.searchInput.value;
   getWeatherByQuery(enteredCity)
     .then(createMarkupOneDay)
     .then(createMarkupFiveDays);
